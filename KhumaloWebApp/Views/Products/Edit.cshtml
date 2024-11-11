@@ -1,0 +1,59 @@
+﻿@model KhumaloWebApp.Models.Products
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="container" style="max-width: 600px; margin-top: 50px;">
+    <h1 class="text-center" style="font-weight: bold; color: #333;">Edit Product</h1>
+
+    <div class="card" style="background-color: #f9f9f9; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top: 20px;">
+        <h4 class="text-center mb-4" style="font-weight: bold; color: #555;">Product Information</h4>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <input type="hidden" asp-for="ProductId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label" style="font-weight: bold;"></label>
+                <input asp-for="Name" class="form-control" style="border-radius: 5px;" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="control-label" style="font-weight: bold;"></label>
+                <input asp-for="Description" class="form-control" style="border-radius: 5px;" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Price" class="control-label" style="font-weight: bold;"></label>
+                <input asp-for="Price" class="form-control" style="border-radius: 5px;" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AvailabilityNumber" class="control-label" style="font-weight: bold;"></label>
+                <input asp-for="AvailabilityNumber" class="form-control" style="border-radius: 5px;" />
+                <span asp-validation-for="AvailabilityNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ImageUrl" class="control-label" style="font-weight: bold;"></label>
+                <input asp-for="ImageUrl" class="form-control" style="border-radius: 5px;" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-4">
+                <input type="submit" value="Save" class="btn btn-primary" style="padding: 10px 20px; font-size: 16px; border-radius: 5px;" />
+                <a asp-action="Index" class="btn btn-secondary" style="padding: 10px 20px; font-size: 16px; border-radius: 5px; margin-left: 10px;">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
